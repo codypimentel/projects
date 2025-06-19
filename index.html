@@ -1,40 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cody Pimentel | Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
     <h1>Cody Pimentel</h1>
-    <p>Aspiring Software Developer</p>
+    <p>I’m a software developer and student with a background in mechanical systems and logistics. I’m passionate about
+      coding and transitioning into a full-time tech career.
+    </p>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a passionate programmer and gamer, always practicing and getting better.</p>
-  </section>
+  <button id="toggle-mode">Dark Mode</button>
 
   <section id="projects">
     <h2>Projects</h2>
+
     <div class="project">
-      <h3>BlackJack</h3>
-      <p>A simple BlackJack game.</p>
-      <a href="https://github.com/codypimentel/blackjack" target="_blank">GitHub</a>
+      <h3>Cash Register App</h3>
+      <p>A simple web app that calculates and returns change based on cash input and item price.</p>
+      <a href="https://codypimentel.github.io/CashRegister/" target="_blank">🔗 Live Demo</a> |
+      <a href="https://github.com/codypimentel/CashRegister" target="_blank">📁 GitHub Repo</a>
     </div>
+
     <div class="project">
-      <h3>Cash Register</h3>
-      <p>A simple cash register web page.</p>
-      <a href="https://github.com/codypimentel/cashregister" target="_blank">GitHub</a>
+      <h3>Blackjack Game</h3>
+      <p>A fun browser-based Blackjack game with betting, deck management, and game logic using JavaScript and HTML.
+        This project runs as a Python program and is not hosted live. Clone the repo and run blackjack.py to try it out.
+      </p>
+      <a href="https://github.com/codypimentel/blackjack" target="_blank">📁 GitHub Repo</a>
     </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Python, Java</li>
+      <li>React, Node.js</li>
+      <li>Git, GitHub, VS Code</li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: codypimentel@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/codypimentel" target="_blank">Cody Pimentel</a></p>
+    <p>Email: <a href="mailto:codypimentel@gmail.com">codypimentel@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/codypimentel" target="_blank">codypimentel</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/codypimentel" target="_blank">linkedin.com/in/codypimentel</a></p>
   </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    const reveal = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) section.classList.add('visible');
+      });
+    };
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
+
+  <script>
+    const button = document.getElementById('toggle-mode');
+    button.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      button.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+  </script>
 </body>
 </html>
